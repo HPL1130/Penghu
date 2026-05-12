@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>2026 澎湖花火節｜長輩友善終極攻略</title>
+    <title>2026 澎湖花火節｜長輩友善深度攻略</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --p-blue: #0284c7; --p-orange: #f97316; }
+        :root { --p-blue: #0284c7; --p-orange: #f97316; --p-fire: #e11d48; }
         body { 
             font-family: "Microsoft JhengHei", "PingFang TC", sans-serif; 
             background: #fcfcfc; 
@@ -17,111 +17,117 @@
             -webkit-tap-highlight-color: transparent;
         }
         .tab-btn.active { border-bottom: 5px solid var(--p-blue); color: var(--p-blue); font-weight: 900; }
+        .fire-card { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border: 2px solid var(--p-fire); }
         .day-view { animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        /* 增加長輩點擊區域感 */
         .nav-item { cursor: pointer; transition: 0.2s; flex: 1; text-align: center; }
         .nav-item:active { background-color: #f1f5f9; }
     </style>
 </head>
 <body class="pb-40">
 
-    <!-- 即時公告欄 -->
-    <div class="bg-blue-900 text-white py-3 px-4 flex justify-between items-center font-bold sticky top-0 z-40 shadow-md">
-        <span class="text-sm">📅 今日 5/12 (二)</span>
-        <span class="text-sm">下場花火：5/14 (四) 觀音亭</span>
+    <!-- 頂部即時公告：花火節限定 -->
+    <div class="bg-rose-700 text-white py-3 px-4 flex justify-between items-center font-bold sticky top-0 z-40 shadow-md">
+        <span class="text-sm">🎆 下場花火：5/14 (四) 21:00</span>
+        <span class="text-sm bg-rose-900 px-2 py-1 rounded">18:30 建議卡位</span>
     </div>
 
     <header class="p-6 bg-white border-b shadow-sm">
-        <h1 class="text-3xl font-black text-slate-800 tracking-tight">澎湖花火節 <span class="text-blue-600">深度指南</span></h1>
-        <p class="text-sm font-bold text-slate-400 mt-2 tracking-widest">※ 專為 5/4 - 8/25 花火節設計</p>
+        <h1 class="text-3xl font-black text-slate-800 tracking-tight">澎湖花火節 <span class="text-rose-600">深度指南</span></h1>
         
-        <!-- 全中文化分日切換 -->
         <div class="flex gap-1 mt-6 border-b">
             <button onclick="vibrate(); showDay('day1')" class="tab-btn active flex-1 py-4 text-xl">第一天</button>
             <button onclick="vibrate(); showDay('day2')" class="tab-btn flex-1 py-4 text-xl">第二天</button>
-            <button onclick="vibrate(); showDay('day3')" class="tab-btn flex-1 py-4 text-xl">第三天</button>
+            <button onclick="button(); showDay('day3')" class="tab-btn flex-1 py-4 text-xl text-slate-300">回程日</button>
         </div>
     </header>
 
     <main class="px-5 pt-6 space-y-6">
         
-        <!-- 第一天：北環私房秘境 -->
+        <!-- Day 1: 北環 + 花火動線 -->
         <section id="day1-view" class="day-view space-y-5">
             <div class="bg-blue-50 p-6 rounded-[2rem] border border-blue-100 shadow-sm">
-                <p class="text-blue-900 font-black text-lg mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-clock"></i> 14:00 出發 (北環路線)
+                <p class="text-blue-900 font-black text-lg mb-4">📍 白天：北環秘境路線</p>
+                <div class="space-y-3">
+                    <div class="bg-white p-4 rounded-xl border border-slate-100">
+                        <p class="text-blue-600 font-black">內垵沙灘 ➜ 三仙塔夕陽</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5/14 重點行程 -->
+            <div class="fire-card p-6 rounded-[2rem] shadow-lg">
+                <p class="text-rose-700 font-black text-xl mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-fire-burner"></i> 20:00 花火卡位策略
                 </p>
                 <div class="space-y-4">
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <p class="text-blue-600 font-black text-lg">內垵沙灘 (必去)</p>
-                        <p class="text-slate-600 mt-1">澎湖馬爾地夫，沙質極細，適合長輩踩水散步。</p>
+                    <div class="flex gap-3">
+                        <div class="bg-rose-200 text-rose-700 px-2 py-1 rounded h-fit text-xs font-bold whitespace-nowrap">動線</div>
+                        <p class="text-sm text-rose-900 font-medium leading-relaxed">
+                            從外垵漁港返程約 25km (40分鐘)，請於 **19:00 前**回到馬公市區。
+                        </p>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <p class="text-blue-600 font-black text-lg">外垵三仙塔 (夕陽)</p>
-                        <p class="text-slate-600 mt-1">俯瞰「小希臘」漁村全景，全澎湖最美拍照點。</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <p class="text-blue-600 font-black text-lg">漁翁島燈塔</p>
-                        <p class="text-slate-600 mt-1">台灣最古老燈塔，感受純白西式風情。</p>
+                    <div class="flex gap-3">
+                        <div class="bg-rose-200 text-rose-700 px-2 py-1 rounded h-fit text-xs font-bold whitespace-nowrap">卡位</div>
+                        <p class="text-sm text-rose-900 font-medium leading-relaxed">
+                            **觀音亭沙灘前排** (18:30帶野餐墊) 是 C 位首選，能看見無人機與煙火同時倒映海面。
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 第二天：體力分流雙路線 -->
+        <!-- Day 2: 離島回程 + 花火接軌 -->
         <section id="day2-view" class="day-view hidden space-y-5">
             <div class="p-6 rounded-[2rem] bg-teal-50 border-2 border-teal-200 shadow-sm">
                 <h3 class="text-xl font-black text-teal-800 mb-2">路線 A：七美全日遊</h3>
-                <p class="text-slate-700 leading-relaxed">09:30 南海碼頭開船。看雙心石滬、小台灣，適合體力充足、熱愛拍照者。</p>
+                <p class="text-sm text-slate-600">16:30 返回南海碼頭 ➜ 距離觀音亭僅 15 分鐘車程。</p>
             </div>
-            <div class="p-6 rounded-[2rem] bg-sky-50 border-2 border-sky-200 shadow-sm">
-                <h3 class="text-xl font-black text-sky-800 mb-2">路線 B：南環輕旅行</h3>
-                <p class="text-slate-700 leading-relaxed">下午 15:00 出發。看風櫃聽濤、菓葉灰窟，行程極輕鬆，適合想多休息的長輩。</p>
-            </div>
-            <div class="bg-slate-100 p-5 rounded-2xl">
-                <p class="text-slate-700 font-bold">💎 私房點：龍門南崁閉鎖陣地</p>
-                <p class="text-sm text-slate-500 mt-1">在地人看海秘境，遠離觀光客喧囂。</p>
+
+            <div class="fire-card p-6 rounded-[2rem] shadow-lg">
+                <p class="text-rose-700 font-black text-xl mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-map-pin"></i> 觀音亭煙火卡位
+                </p>
+                <div class="space-y-4">
+                    <p class="text-sm text-rose-900 font-medium">
+                        **18:00 補給物資** (買在地小吃、飲料) ➜ **20:00 觀音亭廣場集合**。
+                    </p>
+                    <div class="p-4 bg-white/50 rounded-xl border border-rose-200">
+                        <p class="text-xs text-rose-800 font-bold">💡 懶人密技：</p>
+                        <p class="text-xs text-rose-700 mt-1 italic">若沙灘人太多，可改往「文化局看台」，視野高且較不擁擠。</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 第三天：西嶼遺珠與回程 -->
+        <!-- Day 3: 回程 (無花火，專注物流) -->
         <section id="day3-view" class="day-view hidden space-y-5">
             <div class="bg-orange-50 p-6 rounded-[2rem] border border-orange-100">
-                <p class="font-black text-orange-900 text-lg mb-4">📍 14:00 還機車 ➜ 15:20 船班報到</p>
-                
-                <div class="bg-white p-5 rounded-2xl border-2 border-orange-200 mb-4 shadow-sm">
-                    <p class="font-black text-lg">池西岩瀑 (九孔玄武岩)</p>
-                    <p class="text-sm text-slate-500 mt-1 mb-3">大退潮限定！需走過舊九孔池，奇觀必看。</p>
-                    <a href="https://www.cwa.gov.tw/V8/C/M/tide.html" target="_blank" class="text-blue-600 underline font-black block italic">點此看今日潮汐表 (氣象局) ➜</a>
-                </div>
-                
-                <div class="bg-white p-5 rounded-2xl shadow-sm">
-                    <p class="font-black text-blue-900 text-lg">在地美食：筒仔米糕 / 乾拌麵線</p>
-                    <p class="text-slate-500 mt-1">跨海大橋返馬公順路解決，飽餐後再還車。</p>
+                <p class="font-black text-orange-900 text-lg mb-4">📍 14:00 還車 ➜ 16:15 船班</p>
+                <div class="bg-white p-5 rounded-2xl border-2 border-orange-200 shadow-sm">
+                    <p class="font-black text-lg">池西岩瀑 (退潮限定)</p>
+                    <a href="https://www.cwa.gov.tw/V8/C/M/tide.html" target="_blank" class="text-blue-600 underline font-black block mt-2">點此查今天何時退潮 ➜</a>
                 </div>
             </div>
         </section>
 
-        <!-- 終極地圖入口：整合 Google 導航路線 -->
+        <!-- 導覽地圖大按鈕 -->
         <a href="https://www.google.com/maps/dir/馬公港/內垵沙灘/外垵漁港/菓葉灰窟/池西岩瀑/澎湖跨海大橋" 
            target="_blank" 
-           class="block bg-slate-800 p-7 rounded-[2.5rem] shadow-xl text-white flex justify-between items-center border-4 border-blue-500/30" 
+           class="block bg-slate-800 p-7 rounded-[2.5rem] shadow-xl text-white flex justify-between items-center" 
            onclick="vibrate()">
             <div>
                 <p class="text-2xl font-black italic tracking-tight">開啟導航地圖</p>
-                <p class="text-sm text-blue-300 mt-1 font-bold">已串連 20+ 私房秘境路線</p>
+                <p class="text-sm text-blue-300 mt-1">連入 20+ 秘境導航</p>
             </div>
-            <div class="bg-blue-600 p-3 rounded-full">
-                <i class="fa-solid fa-location-arrow text-3xl text-white"></i>
-            </div>
+            <i class="fa-solid fa-location-arrow text-3xl text-blue-400"></i>
         </a>
     </main>
 
-    <!-- 底部導航：放大圖示與觸覺回饋 -->
+    <!-- 底部功能導航 -->
     <nav class="fixed bottom-0 w-full bg-white border-t-2 border-slate-100 px-4 py-5 flex justify-around items-center z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
         <div onclick="vibrate(); showDay('day1')" class="nav-item flex flex-col items-center gap-1">
-            <i class="fa-solid fa-calendar-check text-2xl text-blue-600"></i>
+            <i class="fa-solid fa-house text-2xl text-blue-600"></i>
             <span class="text-sm font-black">完整行程</span>
         </div>
         <div onclick="vibrate(); togglePanel('rain-panel')" class="nav-item flex flex-col items-center gap-1">
@@ -134,67 +140,47 @@
         </div>
     </nav>
 
-    <!-- 彈出面板：雨天備案 -->
+    <!-- 面板：雨天備案 -->
     <div id="rain-panel" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] flex items-end" onclick="togglePanel('rain-panel')">
         <div class="bg-white w-full rounded-t-[40px] p-8" onclick="event.stopPropagation()">
-            <h4 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-2">☔ 雨天備案景點</h4>
+            <h4 class="text-2xl font-black text-slate-800 mb-6">☔ 雨天備案</h4>
             <div class="space-y-4 mb-8 text-left">
                 <div class="p-5 bg-slate-50 rounded-2xl border-2 border-slate-200">
                     <p class="font-black text-lg">澎湖生活博物館</p>
-                    <p class="text-sm text-slate-500">馬公市區，冷氣開放且介紹詳盡，長輩最舒服的室內點。</p>
-                </div>
-                <div class="p-5 bg-slate-50 rounded-2xl border-2 border-slate-200">
-                    <p class="font-black text-lg">鎖港古厝室內參訪</p>
-                    <p class="text-sm text-slate-500">深入了解澎湖石老石古石建築，避雨遮陽首選。</p>
+                    <p class="text-sm text-slate-500">馬公市區，最舒適的室內點。</p>
                 </div>
             </div>
             <button onclick="togglePanel('rain-panel')" class="w-full py-4 bg-slate-800 text-white rounded-2xl font-black text-lg">關閉視窗</button>
         </div>
     </div>
 
-    <!-- 彈出面板：船班查詢 -->
+    <!-- 面板：船班資訊 -->
     <div id="evac-panel" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] flex items-end" onclick="togglePanel('evac-panel')">
         <div class="bg-white w-full rounded-t-[40px] p-8" onclick="event.stopPropagation()">
-            <h4 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-2">🚢 船班與回程資訊</h4>
+            <h4 class="text-2xl font-black text-slate-800 mb-6">🚢 船班查詢</h4>
             <div class="space-y-4 mb-8">
                 <a href="https://www.pescadoresferry.com.tw/ferrySchedule" target="_blank" class="block p-6 bg-blue-600 text-white rounded-2xl shadow-lg">
-                    <p class="font-black text-xl italic mb-1 italic">主要：凱旋3號 船班即時查詢</p>
-                    <p class="text-sm opacity-90">預設 16:15 船班，請於 15:40 抵達報到。</p>
+                    <p class="font-black text-xl italic italic">凱旋3號 船班即時查詢</p>
+                    <p class="text-sm opacity-90">16:15 船班，請 15:40 抵達報到。</p>
                 </a>
-                <div class="p-5 bg-slate-50 rounded-2xl border-2 border-slate-200">
-                    <p class="font-black text-lg text-slate-400 italic">備案：華信航空 (備援方案)</p>
-                    <p class="text-xs text-slate-400">僅在船班停開時考慮，馬公港至機場約 15 分鐘。</p>
-                </div>
             </div>
             <button onclick="togglePanel('evac-panel')" class="w-full py-4 bg-slate-800 text-white rounded-2xl font-black text-lg">關閉視窗</button>
         </div>
     </div>
 
     <script>
-        // 手機震動功能 (觸覺回饋)
-        function vibrate() {
-            if (navigator.vibrate) {
-                navigator.vibrate(50); 
-            }
-        }
+        function vibrate() { if (navigator.vibrate) navigator.vibrate(50); }
 
-        // 分日顯示切換邏輯
         function showDay(dayId) {
-            // 隱藏所有視圖
             document.querySelectorAll('.day-view').forEach(v => v.classList.add('hidden'));
-            // 顯示選擇的視圖
             document.getElementById(dayId + '-view').classList.remove('hidden');
-            // 更新按鈕樣式
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            // 切換時回到頂部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 彈出視窗控制
         function togglePanel(panelId) {
-            const panel = document.getElementById(panelId);
-            panel.classList.toggle('hidden');
+            document.getElementById(panelId).classList.toggle('hidden');
         }
     </script>
 </body>
