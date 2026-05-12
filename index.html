@@ -3,165 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 澎湖花火實戰行程</title>
+    <title>2026 澎湖花火實戰 (布袋客輪版)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; background: #f4f7f9; color: #334155; -webkit-font-smoothing: antialiased; }
-        .day-card { background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); overflow: hidden; margin-bottom: 24px; border: 1px solid #edf2f7; }
-        .time-node { position: relative; padding-left: 28px; border-left: 1.5px solid #e2e8f0; margin-left: 10px; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f8fafc; color: #334155; }
+        .day-card { background: white; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px; border: 1px solid #eef2f6; }
+        .time-node { position: relative; padding-left: 24px; border-left: 1px solid #e2e8f0; margin-left: 8px; padding-bottom: 24px; }
         .time-node::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #cbd5e1; border: 2px solid white; }
         .time-node.active::before { background: #0284c7; }
-        .info-tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
-        .tag-blue { background: #e0f2fe; color: #0369a1; }
-        .tag-orange { background: #ffedd5; color: #9a3412; }
+        .move-meta { font-size: 11px; color: #94a3b8; margin-top: 4px; display: flex; items-center gap: 4px; }
+        .badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 5px; }
+        .bg-sea { background: #f0f9ff; color: #0369a1; }
+        .bg-warn { background: #fff7ed; color: #c2410c; }
     </style>
 </head>
 <body class="pb-24">
 
-    <!-- 頂部實戰資訊 -->
+    <!-- 頂部實戰狀態 -->
     <header class="p-6 bg-white border-b sticky top-0 z-50">
         <div class="max-w-md mx-auto flex justify-between items-end">
             <div>
-                <h1 class="text-xl font-black text-slate-900 tracking-tight">2026 澎湖花火節</h1>
-                <div class="flex gap-2 mt-1">
-                    <span class="info-tag tag-blue"><i class="fa-solid fa-wind"></i> 5m/s 偏北風</span>
-                    <span class="info-tag tag-orange"><i class="fa-solid fa-sun"></i> UV 極高</span>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="badge bg-sea">🚢 布袋－馬公航線</span>
+                    <span class="badge bg-warn">花火節限定</span>
                 </div>
+                <h1 class="text-xl font-black text-slate-900">菊島花火實戰行程</h1>
             </div>
             <div class="text-right">
-                <p class="text-[10px] font-bold text-slate-400">距離煙火開始</p>
-                <p class="text-lg font-black text-sky-600">11:34:05</p>
+                <p class="text-[10px] font-bold text-slate-400">距離 21:00 煙火</p>
+                <p class="text-lg font-black text-sky-600">11:15:05</p>
             </div>
         </div>
     </header>
 
     <main class="max-w-md mx-auto p-5">
         
-        <!-- Day 1: 市區與花火 -->
+        <!-- Day 1: 抵達與節慶節奏 -->
         <section class="day-card p-6">
-            <div class="flex justify-between items-start mb-6">
-                <h2 class="text-2xl font-black text-slate-800">Day 1 — 煙火主線</h2>
-                <span class="text-xs text-slate-400 font-medium">5/18 (一)</span>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black text-slate-800 italic">Day 1 — 登岸與休息</h2>
+                <span class="text-xs text-slate-400 font-bold">5/18 (一)</span>
             </div>
             
-            <div class="space-y-6">
+            <div class="space-y-0">
+                <div class="time-node">
+                    <p class="text-[11px] font-bold text-slate-400 uppercase">11:30－12:30 抵達馬公</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">下船、領車、放行李</h3>
+                    <div class="move-meta"><i class="fa-solid fa-person-walking"></i> 馬公港 → 租車行 8min</div>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        剛下船會有微暈感，不急著衝。先去民宿放行李，讓胃部休息一下。
+                    </p>
+                </div>
+
                 <div class="time-node active">
-                    <p class="text-[11px] font-bold text-slate-400">12:00 午餐</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">文康商圈 / 鐘記燒餅</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        必點干貝醬燒餅。吃完建議直接去加滿油，花火節期間市區加油站常排隊。
+                    <p class="text-[11px] font-bold text-slate-400">13:00 晚午餐</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">文康商圈 / 或是清淡的麵食</h3>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        避開 12:00 最擠的時段。如果胃口還沒恢復，建議吃簡單點，待會要「強迫午休」。
                     </p>
                 </div>
 
                 <div class="time-node">
-                    <p class="text-[11px] font-bold text-sky-600 uppercase">13:30－16:00 保命休息</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">回民宿午睡 / 洗澡</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        相信我，這兩小時的冷氣決定你晚上的心情。澎湖的中午是拿來避暑的，不是跑景點。
+                    <p class="text-[11px] font-bold text-sky-600 uppercase">14:30－17:00 深度充電</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">民宿午睡 <span class="badge bg-sea ml-1">暈船恢復期</span></h3>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        搭船後的疲累是隱性的。這段休息不只是躲太陽，更是為了平復船震的疲勞。
                     </p>
                 </div>
 
                 <div class="time-node">
-                    <p class="text-[11px] font-bold text-slate-400">18:00 提前晚餐</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">阿豹香腸攤 / 市區速食</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        18:30 後觀音亭周邊會封路，建議這時就步行進入會場卡位。
-                    </p>
-                </div>
-
-                <div class="time-node">
-                    <p class="text-[11px] font-bold text-orange-600 uppercase">19:00 卡位等待</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">觀音亭草皮卡位</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        夕陽很美，這段等待其實是整趟旅程最放鬆的時刻。帶野餐墊，吹海風，等 21:00 煙火。
+                    <p class="text-[11px] font-bold text-slate-400">18:30 卡位等待</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">步行進觀音亭</h3>
+                    <div class="move-meta"><i class="fa-solid fa-person-walking"></i> 市區 → 觀音亭 15min</div>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        18:00 後市區會很難停車，建議停好機車後慢步走進去。這時的夕陽對恢復體力很有幫助。
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Day 2: 南方四島 -->
+        <!-- Day 2: 南海與回本島後的疲勞動線 -->
         <section class="day-card p-6 border-t-4 border-sky-500">
-            <div class="flex justify-between items-start mb-6">
-                <h2 class="text-2xl font-black text-slate-800">Day 2 — Deep Blue</h2>
-                <span class="text-xs text-slate-400 font-medium">5/19 (二)</span>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black text-slate-800 italic">Day 2 — 南海冒險</h2>
+                <span class="text-xs text-slate-400 font-bold">5/19 (二)</span>
             </div>
             
-            <div class="space-y-6">
+            <div class="space-y-0">
                 <div class="time-node active">
-                    <p class="text-[11px] font-bold text-slate-400">07:30 出發</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">南海遊客中心報到</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        <span class="text-orange-600 font-bold">#補水警告：一人帶 2000ml。</span>船程約 90 分鐘，浪大，建議 30 分鐘前吃暈船藥。
+                    <p class="text-[11px] font-bold text-orange-600 uppercase italic">07:30 集合報到</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">南海遊客中心</h3>
+                    <div class="move-meta"><i class="fa-solid fa-motorcycle"></i> 市區 → 碼頭 10min</div>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        <span class="font-bold text-slate-700 underline">08:00 準時開船</span>。記得提早吃暈船藥，南方四島的風浪比布袋航線更硬。
                     </p>
                 </div>
 
                 <div class="time-node">
-                    <p class="text-[11px] font-bold text-slate-400">13:00 登島</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">七美月鯉灣</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        水色極透。比起雙心石滬，這裡更適合靜坐。島上遮蔽少，一定要穿長袖防曬。
-                    </p>
-                </div>
-
-                <div class="time-node">
-                    <p class="text-[11px] font-bold text-slate-400">18:30 盥洗</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">洗掉身上的鹽分</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        跳島回來全身又黏又累，先回民宿洗澡再出門吃飯。晚上推「清心飲食店」。
+                    <p class="text-[11px] font-bold text-slate-400">18:30 晚餐</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">馬公市區海鮮 (來福/龍門)</h3>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        跳島回來後體力值是負的，不要跑遠。在市區吃完趕快回民宿洗澡睡覺。
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Day 3: 北環 -->
+        <!-- Day 3: 北環與回程衝刺 -->
         <section class="day-card p-6">
-            <div class="flex justify-between items-start mb-6">
-                <h2 class="text-2xl font-black text-slate-800">Day 3 — 北環地質</h2>
-                <span class="text-xs text-slate-400 font-medium">5/20 (三)</span>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black text-slate-800 italic">Day 3 — 北環與歸途</h2>
+                <span class="text-xs text-slate-400 font-bold">5/20 (三)</span>
             </div>
             
-            <div class="space-y-6">
+            <div class="space-y-0">
                 <div class="time-node active">
-                    <p class="text-[11px] font-bold text-sky-600 uppercase italic">10:40 潮汐點：後寮天堂路</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">配合乾潮時間</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        今天的重頭戲。這條路要在乾潮前後 1 小時拍才漂亮。
-                    </p>
+                    <p class="text-[11px] font-bold text-sky-600">09:30 潮汐時段</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">後寮天堂路</h3>
+                    <div class="move-meta"><i class="fa-solid fa-motorcycle"></i> 市區 → 後寮 25min</div>
                 </div>
 
                 <div class="time-node">
-                    <p class="text-[11px] font-bold text-slate-400">13:30 人文</p>
+                    <p class="text-[11px] font-bold text-slate-400">11:30 景點</p>
                     <h3 class="font-bold text-slate-800 text-[15px]">二崁聚落 / 池西岩瀑</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        二崁杏仁茶是必喝。池西岩瀑的層次感比大菓葉更強，攝影控推薦。
+                    <div class="move-meta"><i class="fa-solid fa-motorcycle"></i> 後寮 → 二崁 15min</div>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        二崁杏仁茶、池西拍岩瀑。這裡是北環終點，拍完準備折返。
                     </p>
                 </div>
 
                 <div class="time-node">
-                    <p class="text-[11px] font-bold text-slate-400 uppercase">16:00 結尾</p>
-                    <h3 class="font-bold text-slate-800 text-[15px]">留白的一小時 / 海邊咖啡</h3>
-                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
-                        最後留一小時給海風，不要太趕。去漁翁島燈塔看最後一眼夕陽再往機場走。
+                    <p class="text-[11px] font-bold text-orange-600 uppercase">14:30 回到馬公市區</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">還車、買伴手禮</h3>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        <span class="font-bold">#時間壓力點：</span>15:00 必須抵達港口準備登船。漁翁島燈塔這次先留遺憾，下次搭飛機再來。
+                    </p>
+                </div>
+
+                <div class="time-node">
+                    <p class="text-[11px] font-bold text-slate-400">16:00 啟航回程</p>
+                    <h3 class="font-bold text-slate-800 text-[15px]">馬公港 → 布袋港</h3>
+                    <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                        帶著滿滿的記憶（和鹽分）回家。
                     </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 功能導航 -->
-    <nav class="fixed bottom-0 w-full bg-white border-t flex px-6 py-4 justify-between items-center z-50">
-        <div class="flex flex-col items-center text-sky-600">
-            <i class="fa-solid fa-map-location-dot text-lg"></i>
-            <span class="text-[10px] font-bold mt-1">實戰行程</span>
+    <!-- 底部功能 -->
+    <nav class="fixed bottom-0 w-full bg-white border-t flex px-8 py-4 justify-between items-center z-50">
+        <div class="text-sky-600 flex flex-col items-center">
+            <i class="fa-solid fa-ship text-lg"></i>
+            <span class="text-[10px] font-bold mt-1">船班資訊</span>
         </div>
-        <div class="flex flex-col items-center text-slate-400">
-            <i class="fa-solid fa-water text-lg"></i>
-            <span class="text-[10px] font-bold mt-1">今日潮汐</span>
+        <div class="text-slate-400 flex flex-col items-center">
+            <i class="fa-solid fa-map text-lg"></i>
+            <span class="text-[10px] font-bold mt-1">導航</span>
         </div>
-        <div class="flex flex-col items-center text-slate-400">
-            <i class="fa-solid fa-bus text-lg"></i>
-            <span class="text-[10px] font-bold mt-1">交通預報</span>
+        <div class="text-slate-400 flex flex-col items-center">
+            <i class="fa-solid fa-suitcase text-lg"></i>
+            <span class="text-[10px] font-bold mt-1">伴手禮清單</span>
         </div>
     </nav>
 
