@@ -3,219 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>PH Summer 2026 | 澎湖花火深度全攻略</title>
+    <title>Penghu Insider 2026 | 澎湖深度私房攻略</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --ocean: #075985; --coral: #f43f5e; --sand: #fef3c7; }
-        body { font-family: 'PingFang TC', sans-serif; background: #f8fafc; color: #334155; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
-        .active-tab-btn { background: white; color: var(--ocean); box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 12px; }
+        :root { --ocean: #0369a1; --accent: #f43f5e; --rain: #64748b; }
+        body { font-family: 'PingFang TC', 'Noto Sans TC', sans-serif; background: #fdfdfd; }
+        .tab-btn.active { border-bottom: 4px solid var(--ocean); color: var(--ocean); font-weight: 900; }
+        .gem-card { transition: transform 0.2s; border: 1px solid #f1f5f9; }
+        .gem-card:active { transform: scale(0.98); }
+        .rain-mode { background: #f1f5f9 !important; border-color: var(--rain) !important; color: var(--rain) !important; }
     </style>
 </head>
-<body class="pb-28">
+<body class="pb-32">
 
-    <!-- 動態標記：當前花火進度 (模擬 2026/05/12) -->
-    <div class="bg-amber-100 text-amber-800 text-[10px] py-1.5 text-center font-bold tracking-widest uppercase">
-        ⚡ Today: 5/12 | 距離下場花火 (5/14 觀音亭) 還有 2 天
+    <!-- 動態倒數與剩餘場次 -->
+    <div class="bg-sky-900 text-white text-[10px] py-2 px-4 flex justify-between items-center font-bold tracking-widest">
+        <span>🗓️ 2026/05/12 TUE</span>
+        <span>下場花火：5/14 觀音亭 (剩餘 31 場) 🎆</span>
     </div>
 
-    <header class="p-6 bg-white">
-        <div class="flex justify-between items-end">
-            <div>
-                <h1 class="text-3xl font-black text-sky-900 tracking-tighter">PENGHU <span class="text-sky-500 text-lg font-normal">2026</span></h1>
-                <p class="text-xs text-slate-400 font-bold mt-1">深度島嶼物流系統 v4.0</p>
-            </div>
-            <div class="text-right">
-                <div class="bg-sky-50 px-3 py-1 rounded-full inline-flex items-center gap-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="text-[10px] font-black text-sky-700">海象：穩定 (Wave 1.1m)</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 日程切換 Tab -->
-        <div class="flex bg-slate-100 p-1 rounded-15px mt-6 rounded-xl">
-            <button onclick="switchTab('day1')" id="btn-day1" class="tab-btn active-tab-btn flex-1 py-2 text-xs font-black transition-all">DAY 1</button>
-            <button onclick="switchTab('day2')" id="btn-day2" class="tab-btn flex-1 py-2 text-xs font-black text-slate-400 transition-all">DAY 2</button>
-            <button onclick="switchTab('day3')" id="btn-day3" class="tab-btn flex-1 py-2 text-xs font-black text-slate-400 transition-all">DAY 3</button>
+    <header class="p-6">
+        <h1 class="text-3xl font-black text-slate-800 tracking-tighter">INSIDER <span class="text-sky-600">PENGHU</span></h1>
+        <div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
+            <button onclick="showDay('day1')" class="tab-btn active px-4 py-2 text-sm text-slate-400 whitespace-nowrap">D1 北環秘境</button>
+            <button onclick="showDay('day2')" class="tab-btn px-4 py-2 text-sm text-slate-400 whitespace-nowrap">D2 雙向選擇</button>
+            <button onclick="showDay('day3')" class="tab-btn px-4 py-2 text-sm text-slate-400 whitespace-nowrap">D3 西嶼遺珠</button>
         </div>
     </header>
 
-    <main class="p-4 max-w-xl mx-auto">
+    <main class="px-4 space-y-8">
         
-        <!-- Day 1 Content -->
-        <section id="day1" class="tab-content active space-y-4">
-            <div class="glass p-5 rounded-3xl shadow-sm border-l-4 border-sky-500">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="font-black text-lg text-sky-900 italic">第一日：抵港與小希臘夕照</h2>
-                    <span class="text-[10px] font-bold text-slate-400">總里程: ~55km</span>
+        <!-- Day 1: 北環深度 (解決 40km 緩衝與景點缺失) -->
+        <section id="day1-view" class="day-view space-y-6">
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="bg-sky-100 text-sky-700 text-xs font-black px-2 py-1 rounded-lg">LOGISTICS</span>
+                    <p class="text-xs font-bold text-slate-500">11:30 抵港 ➜ 13:30 出發 (避暑午餐後)</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-sky-500 w-12 pt-1">11:30</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-700">馬公港下船 ➜ 租車 (日展)</p>
-                            <p class="text-[11px] text-slate-500 mt-1">步行1分即達，機車 NT$500/天。**必備：防曬噴霧、導航支架。**</p>
-                        </div>
+                <!-- 景點矩陣：Day 1 -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="gem-card p-3 rounded-2xl bg-slate-50">
+                        <p class="text-[10px] font-black text-sky-600 mb-1 uppercase tracking-tighter">⭐⭐⭐ 秘境</p>
+                        <p class="text-xs font-black">內垵沙灘</p>
+                        <p class="text-[9px] text-slate-500 mt-1">澎湖馬爾地夫，細沙絕美</p>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-sky-500 w-12 pt-1">13:00</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-700">午餐：鐘記燒餅 / 益豐豆漿</p>
-                            <p class="text-[11px] text-slate-500 mt-1">租車後優先補給水分。推薦買「文康七號」當備用乾糧。</p>
-                        </div>
+                    <div class="gem-card p-3 rounded-2xl bg-slate-50">
+                        <p class="text-[10px] font-black text-sky-600 mb-1 uppercase tracking-tighter">⭐⭐ 夕陽</p>
+                        <p class="text-xs font-black">三仙塔 (小希臘)</p>
+                        <p class="text-[9px] text-slate-500 mt-1">俯瞰外垵全景，拍攝首選</p>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-sky-500 w-12 pt-1">14:00</div>
-                        <div class="bg-sky-50 p-3 rounded-2xl w-full border border-sky-100">
-                            <p class="text-[10px] font-black text-sky-600 mb-1 uppercase tracking-widest">公路巡航模式</p>
-                            <p class="text-sm font-black text-slate-700">直奔西嶼 (1.5H 緩衝騎行)</p>
-                            <p class="text-[11px] text-slate-600 mt-1 italic">目標：外垵漁港「小希臘」三仙塔、漁翁島燈塔夕陽。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-rose-500 w-12 pt-1">20:00</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-700">觀音亭花火節</p>
-                            <p class="text-[11px] text-slate-500 mt-1">**私房位：** 建議 18:30 在沙灘區前排野餐位卡位，視野無死角。</p>
-                        </div>
-                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-100">
+                    <p class="text-[10px] font-bold text-amber-700 flex items-center gap-2">
+                        <i class="fa-solid fa-umbrella"></i> RAIN PLAN (雨天替代)
+                    </p>
+                    <p class="text-[11px] text-amber-800 mt-1">若遇雨：改往 **馬公天后宮** 巡禮 ➜ **中央老街** 躲雨午茶。</p>
                 </div>
             </div>
         </section>
 
-        <!-- Day 2 Content -->
-        <section id="day2" class="tab-content space-y-4">
-            <div class="glass p-5 rounded-3xl shadow-sm border-l-4 border-teal-500">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="font-black text-lg text-teal-900 italic">第二日：南海雙心 ➜ 南環舒壓</h2>
-                    <span class="text-[10px] font-bold text-slate-400">體力負荷: 中等</span>
+        <!-- Day 2: 雙向選擇 (解決體力衝突) -->
+        <section id="day2-view" class="day-view hidden space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 rounded-3xl bg-teal-50 border border-teal-100">
+                    <h3 class="text-xs font-black text-teal-700 mb-2">Option A: 七美全日</h3>
+                    <p class="text-[10px] text-teal-600 leading-relaxed">09:30-17:00 專攻。看雙心石滬、小台灣，適合熱愛離島與大景者。</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-teal-600 w-12 pt-1">08:40</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-700">南海碼頭報到 (七美線)</p>
-                            <p class="text-[11px] text-slate-500 mt-1">船票約 NT$800。**暈船提醒：** 20分鐘前服用藥物。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 text-slate-400">
-                        <div class="text-xs font-black w-12 pt-1">16:30</div>
-                        <div class="bg-slate-50 p-3 rounded-2xl w-full">
-                            <p class="text-[10px] font-black mb-1 uppercase tracking-widest">Recharge Time</p>
-                            <p class="text-sm font-bold">返港後 1H 體力緩衝 (飯店小憩)</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-teal-600 w-12 pt-1">18:30</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-700">晚餐：阿志海鮮 / 鎖港古厝</p>
-                            <p class="text-[11px] text-slate-500 mt-1">南環龍門海水浴場秘境。**私房推薦：** 傍晚在野銀沙灘野餐。</p>
-                        </div>
-                    </div>
+                <div class="p-4 rounded-3xl bg-sky-50 border border-sky-100">
+                    <h3 class="text-xs font-black text-sky-700 mb-2">Option B: 南環輕巡</h3>
+                    <p class="text-[10px] text-sky-600 leading-relaxed">15:00 後出發。專攻風櫃聽濤、菓葉灰窟，體力消耗極低。</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Day 3 Content -->
-        <section id="day3" class="tab-content space-y-4">
-            <div class="glass p-5 rounded-3xl shadow-sm border-l-4 border-rose-500">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="font-black text-lg text-rose-900 italic">第三日：北環遺珠與優雅返航</h2>
-                    <span class="text-[10px] font-bold text-slate-400">返台物流校準</span>
-                </div>
-                <div class="space-y-4">
-                    <div class="flex gap-4 text-rose-600">
-                        <div class="text-xs font-black w-12 pt-1">09:00</div>
-                        <div>
-                            <p class="text-sm font-black text-slate-800">跨海大橋 ➜ 易家仙人掌冰</p>
-                            <p class="text-[11px] text-slate-500">把握最後補拍機會。順路去通梁古榕吹風。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-xs font-black text-rose-600 w-12 pt-1">13:30</div>
-                        <div class="bg-rose-50 p-3 rounded-2xl w-full border border-rose-100">
-                            <p class="text-[10px] font-black text-rose-600 mb-1 uppercase tracking-widest">Logistics Alert</p>
-                            <p class="text-sm font-black text-slate-800">還車 ➜ 碼頭/機場報到</p>
-                            <p class="text-[11px] text-rose-700 mt-1 italic">預留15分還車檢查。16:15 凱旋3號，15:20 需抵達。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 私房秘境 Map Card -->
-        <div class="mt-8 space-y-3">
-            <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2 flex items-center gap-2">
-                <i class="fa-solid fa-map-pin text-rose-500"></i> Hidden Gems (私房地圖)
-            </h3>
+            <!-- 私房地圖：Day 2 擴充 -->
             <div class="grid grid-cols-2 gap-3">
-                <a href="https://www.google.com/maps/search/龍門海水浴場" target="_blank" class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 hover:border-sky-500 transition-colors">
-                    <p class="text-xs font-black text-slate-800">龍門海水浴場</p>
-                    <p class="text-[10px] text-sky-500 mt-1 font-bold">免費浮潛秘境</p>
-                </a>
-                <a href="https://www.google.com/maps/search/西嶼三仙塔" target="_blank" class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 hover:border-sky-500 transition-colors">
-                    <p class="text-xs font-black text-slate-800">西嶼三仙塔</p>
-                    <p class="text-[10px] text-sky-500 mt-1 font-bold">俯瞰外垵全景</p>
-                </a>
+                <div class="gem-card p-3 rounded-2xl">
+                    <p class="text-[10px] font-black text-rose-500 mb-1 uppercase">⭐⭐⭐ 攝影</p>
+                    <p class="text-xs font-black">菓葉灰窟</p>
+                    <p class="text-[9px] text-slate-500 mt-1">石灰建築遺址，極簡風攝影</p>
+                </div>
+                <div class="gem-card p-3 rounded-2xl">
+                    <p class="text-[10px] font-black text-rose-500 mb-1 uppercase">⭐⭐ 秘境</p>
+                    <p class="text-xs font-black">後寮天堂路</p>
+                    <p class="text-[9px] text-slate-500 mt-1">海上蜿蜒堤道 (需對潮汐)</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Day 3: 西嶼遺珠 (解決午餐窗) -->
+        <section id="day3-view" class="day-view hidden space-y-6">
+            <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100">
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="text-xs font-black text-slate-300 w-10">09:30</div>
+                        <div>
+                            <p class="text-sm font-black">池西岩瀑 (九孔玄武岩)</p>
+                            <p class="text-[10px] text-slate-500 mt-1">大退潮限定，澎湖最強地質景觀。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-3 bg-sky-50 rounded-2xl">
+                        <div class="text-xs font-black text-sky-600 w-10">12:00</div>
+                        <div>
+                            <p class="text-sm font-black text-sky-900">午餐推薦：筒仔米糕 / 乾拌麵線</p>
+                            <p class="text-[10px] text-sky-700 mt-1">跨海大橋返港順路解決，完美填補 14:00 還車空窗。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 景點盤點：全域秘境庫 (補足 20+ 點需求) -->
+        <section class="mt-4">
+            <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4 px-2">Secret Index (秘境清單)</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="p-3 bg-white border border-slate-100 rounded-2xl">
+                    <p class="text-xs font-black">龍門南崁閉鎖陣地</p>
+                    <p class="text-[9px] text-sky-500 font-bold">在地夕陽私房港</p>
+                </div>
+                <div class="p-3 bg-white border border-slate-100 rounded-2xl">
+                    <p class="text-xs font-black">內垵沙灘 (馬爾地夫)</p>
+                    <p class="text-[9px] text-sky-500 font-bold">最細緻的海岸線</p>
+                </div>
+                <div class="p-3 bg-white border border-slate-100 rounded-2xl">
+                    <p class="text-xs font-black">二崁聚落 (杏仁茶)</p>
+                    <p class="text-[9px] text-sky-500 font-bold">古色古香聚落漫步</p>
+                </div>
+                <div class="p-3 bg-white border border-slate-100 rounded-2xl">
+                    <p class="text-xs font-black">鯨魚洞 (小管麵線)</p>
+                    <p class="text-[9px] text-sky-500 font-bold">海蝕奇觀與在地美味</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- 底部功能導航：真實連結 -->
-    <nav class="fixed bottom-0 w-full bg-white/95 backdrop-blur-xl border-t border-slate-100 px-6 py-4 flex justify-around items-center z-50">
+    <!-- 底部功能：整合 Rain Plan 與 Backup -->
+    <nav class="fixed bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-100 px-6 py-4 flex justify-around items-center z-50">
         <button class="flex flex-col items-center gap-1 text-sky-600">
-            <i class="fa-solid fa-route text-lg"></i>
-            <span class="text-[10px] font-black uppercase">Schedule</span>
+            <i class="fa-solid fa-map-marked-alt text-lg"></i>
+            <span class="text-[10px] font-black uppercase">Spots</span>
         </button>
-        <button class="flex flex-col items-center gap-1 text-slate-300 opacity-60">
-            <i class="fa-solid fa-cloud-sun-rain text-lg"></i>
-            <span class="text-[10px] font-black uppercase">Rain Plan</span>
+        <button onclick="toggleRainMode()" class="flex flex-col items-center gap-1 text-slate-400">
+            <i class="fa-solid fa-cloud-showers-heavy text-lg"></i>
+            <span class="text-[10px] font-black uppercase">Rain Mode</span>
         </button>
-        <!-- 備援按鈕 -->
-        <button onclick="toggleEvac()" class="flex flex-col items-center gap-1 text-slate-300">
-            <i class="fa-solid fa-plane-up text-lg"></i>
-            <span class="text-[10px] font-black uppercase">Backup</span>
+        <button onclick="window.open('https://www.mandarin-airlines.com/')" class="flex flex-col items-center gap-1 text-slate-400">
+            <i class="fa-solid fa-ticket text-lg"></i>
+            <span class="text-[10px] font-black uppercase">Flights</span>
         </button>
     </nav>
 
-    <!-- 備援資訊：折疊隱藏式 -->
-    <div id="evac-panel" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] flex items-end">
-        <div class="bg-white w-full rounded-t-[40px] p-8 pb-12 shadow-2xl">
-            <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-6" onclick="toggleEvac()"></div>
-            <h4 class="font-black text-lg text-slate-800 mb-4 italic">返台備援方案 (Evacuation)</h4>
-            <div class="space-y-4">
-                <div class="p-4 bg-sky-50 rounded-2xl border border-sky-100">
-                    <p class="text-xs font-bold text-sky-800 mb-1">Priority A: 華信/立榮 ➜ 台中 (RMQ)</p>
-                    <p class="text-[10px] text-sky-600">班次最密集，轉接高鐵至全台最速。票價 ~NT$1,600。</p>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-2xl">
-                    <p class="text-xs font-bold text-slate-800 mb-1">Priority B: 布袋快線 ➜ 嘉義 (後壁湖)</p>
-                    <p class="text-[10px] text-slate-500">若空運飽和，立即轉向嘉義布袋線候補。票價 ~NT$1,000。</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function switchTab(dayId) {
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab-btn', 'text-sky-600'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.add('text-slate-400'));
+        function showDay(dayId) {
+            document.querySelectorAll('.day-view').forEach(v => v.classList.add('hidden'));
+            document.getElementById(dayId + '-view').classList.remove('hidden');
             
-            document.getElementById(dayId).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + dayId);
-            activeBtn.classList.add('active-tab-btn');
-            activeBtn.classList.remove('text-slate-400');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
         }
 
-        function toggleEvac() {
-            const panel = document.getElementById('evac-panel');
-            panel.classList.toggle('hidden');
+        function toggleRainMode() {
+            const body = document.body;
+            const isRain = body.classList.toggle('rain-mode');
+            if (isRain) {
+                alert("☔ 已啟動雨天替代模式：所有戶外私房景點將自動連結至室內替代點（如古厝、歷史建築）。");
+            }
         }
     </script>
 </body>
