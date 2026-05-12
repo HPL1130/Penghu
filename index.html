@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>澎湖花火節 2026 | 航海王慶典行程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --accent: #0284c7; --bg: #f0f9ff; }
+        body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; background: var(--bg); color: #334155; padding-bottom: 90px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeInUp 0.4s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); border-top: 1px solid #e2e8f0; display: flex; justify-content: space-around; padding: 12px 0 28px 0; z-index: 100; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: #94a3b8; cursor: pointer; flex: 1; }
+        .nav-item.active { color: var(--accent); font-weight: 800; }
+        .nav-item i { font-size: 1.4rem; margin-bottom: 4px; }
+
+        .timeline { border-left: 2px solid #bae6fd; margin-left: 14px; padding-left: 20px; }
+        .node { position: relative; padding-bottom: 32px; }
+        .node::before { content: ''; position: absolute; left: -27px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #cbd5e1; border: 2px solid white; }
+        .node.important::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2); }
+        
+        .info-card { background: #f8fafc; border-radius: 12px; padding: 14px; margin-top: 10px; border-left: 4px solid #0284c7; }
+        .card-style { background: white; border-radius: 20px; border: 1px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .map-btn { display: inline-flex; align-items: center; gap: 4px; background: #f0f9ff; color: #0284c7; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; margin-right: 8px; }
+        .badge { background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 99px; font-size: 0.7rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md z-50 px-6 py-4 border-b border-sky-100">
+        <div class="flex justify-between items-center max-w-md mx-auto">
+            <div>
+                <h1 class="text-xl font-black text-sky-900">澎湖花火節 2026</h1>
+                <p class="text-[10px] text-sky-400 font-bold tracking-widest">菊島之夏・航海王慶典</p>
+            </div>
+            <div class="text-right">
+                <span class="text-xs font-black text-sky-700">05/18 - 05/20</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-5 pt-6">
+
+        <section id="summary" class="tab-content active space-y-6">
+            <div class="bg-sky-700 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-black mb-2">平日出發・極致煙火</h2>
+                    <p class="text-xs opacity-70">2026 航海王 27 週年聯名預計版</p>
+                </div>
+                <i class="fa-solid fa-ship absolute -right-4 -bottom-4 text-white/10 text-8xl"></i>
+            </div>
+
+            <div class="card-style">
+                <h3 class="text-xs font-black text-slate-400 mb-4 uppercase tracking-widest">每日體力負荷指數</h3>
+                <div class="h-48"><canvas id="travelChart"></canvas></div>
+            </div>
+
+            <div class="p-5 bg-sky-50 border border-sky-100 rounded-2xl space-y-3">
+                <h3 class="text-sm font-black text-sky-900 flex items-center"><i class="fa-solid fa-circle-exclamation mr-2"></i>菊島旅遊提醒</h3>
+                <ul class="text-[11px] text-sky-800 leading-relaxed space-y-2">
+                    <li class="flex gap-2"><b>●</b> <span><b>防曬必備：</b>澎湖紫外線極強，物理防曬比化妝品更重要。</span></li>
+                    <li class="flex gap-2"><b>●</b> <span><b>機車租借：</b>需備妥台灣駕照，島上測速照相多請留意速限。</span></li>
+                    <li class="flex gap-2"><b>●</b> <span><b>煙火時段：</b>21:00 準時施放，建議 19:30 前進入觀音亭卡位。</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="itinerary" class="tab-content space-y-10">
+            <div class="day-box">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-black italic">Day 1 <span class="text-xs not-italic font-bold text-slate-400 ml-2">05/18 (一)</span></h2>
+                    <span class="badge">主場煙火之夜</span>
+                </div>
+                <div class="timeline">
+                    <div class="node">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">11:00 Landing</div>
+                        <div class="font-bold">✈️ 抵達馬公機場 / 民宿 Check-in</div>
+                        <div class="info-card text-xs">領取機車，前往市區吃「文康早餐街」遺漏的午餐。</div>
+                    </div>
+                    <div class="node">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">15:00 Culture</div>
+                        <div class="font-bold">🏯 篤行十村 & 澎湖天后宮</div>
+                        <div class="info-card text-xs">全台最老眷村，拍潘安邦舊居、張雨生紀念館。</div>
+                    </div>
+                    <div class="node important">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">21:00 Highlight</div>
+                        <div class="font-bold">🎆 觀音亭：航海王主題煙火</div>
+                        <div class="info-card text-xs">
+                            無人機秀 + 大型煙火。建議在「西瀛虹橋」側邊草地觀賞。
+                            <div class="flex flex-wrap">
+                                <a href="https://www.google.com/maps/search/?api=1&query=馬公觀音亭" class="map-btn"><i class="fa-solid fa-map"></i> 地圖</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-box">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-black italic">Day 2 <span class="text-xs not-italic font-bold text-slate-400 ml-2">05/19 (二)</span></h2>
+                    <span class="badge">絕美跳島秘境</span>
+                </div>
+                <div class="timeline">
+                    <div class="node important">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">08:00 Island Hopping</div>
+                        <div class="font-bold">🚤 南方四島 + 七美一日遊</div>
+                        <div class="info-card text-xs">
+                            雙心石滬、小台灣。看澎湖最純淨的藍天與玄武岩。
+                            <div class="flex flex-wrap">
+                                <a href="https://www.google.com/maps/search/?api=1&query=七美雙心石滬" class="map-btn"><i class="fa-solid fa-camera"></i> 必拍</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">16:30 Tea Time</div>
+                        <div class="font-bold">🍦 澎湖仙人掌冰 & 玉冠嫩仙草</div>
+                        <div class="info-card text-xs">回馬公市區消暑補給，嫩仙草必點「綜合料」。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-box">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-black italic">Day 3 <span class="text-xs not-italic font-bold text-slate-400 ml-2">05/20 (三)</span></h2>
+                    <span class="badge">北環地景大賞</span>
+                </div>
+                <div class="timeline">
+                    <div class="node">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">09:00 Road Trip</div>
+                        <div class="font-bold">🛵 北環線：跨海大橋 / 後寮天堂路</div>
+                        <div class="info-card text-xs">澎湖標誌景點，天堂路需注意潮汐時間。</div>
+                    </div>
+                    <div class="node important">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">11:30 Nature</div>
+                        <div class="font-bold">🗿 池東大菓葉玄武岩</div>
+                        <div class="info-card text-xs">壯觀的柱狀節理，下雨後積水倒影最美。</div>
+                    </div>
+                    <div class="node">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">15:00 Souvenir</div>
+                        <div class="font-bold">🛍️ 伴手禮採買 / 機場送機</div>
+                        <div class="info-card text-xs">黑糖糕、干貝醬一次帶走。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="food" class="tab-content space-y-4">
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-3">
+                <button class="filter-btn active bg-sky-800 text-white px-4 py-2 rounded-xl text-xs font-bold" data-filter="all">全部</button>
+                <button class="filter-btn bg-white border px-4 py-2 rounded-xl text-xs font-bold" data-filter="seafood">海鮮系</button>
+                <button class="filter-btn bg-white border px-4 py-2 rounded-xl text-xs font-bold" data-filter="snack">在地小吃</button>
+            </div>
+            <div id="foodGrid" class="grid gap-3"></div>
+        </section>
+
+        <section id="souvenir" class="tab-content space-y-5">
+            <div class="card-style border-l-4 border-l-sky-500">
+                <h3 class="font-black text-slate-800 mb-3 flex items-center">
+                    <i class="fa-solid fa-box-open mr-2 text-sky-500"></i>澎湖必帶清單
+                </h3>
+                <div class="text-xs grid grid-cols-2 gap-4">
+                    <div class="bg-sky-50 p-3 rounded-lg"><b>御品家黑糖糕</b><br><span class="text-sky-400">當天現做最Q</span></div>
+                    <div class="bg-sky-50 p-3 rounded-lg"><b>澎湖伯干貝醬</b><br><span class="text-sky-400">鮮甜不油膩</span></div>
+                    <div class="bg-sky-50 p-3 rounded-lg"><b>花生酥 (正一)</b><br><span class="text-sky-400">香濃古法製作</span></div>
+                    <div class="bg-sky-50 p-3 rounded-lg"><b>鹹餅</b><br><span class="text-sky-400">酥脆鹹香回甘</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prep" class="tab-content space-y-6">
+            <div class="bg-sky-900 text-white rounded-3xl p-6">
+                <h2 class="text-lg font-black mb-4 flex items-center text-sky-400">
+                    <i class="fa-solid fa-list-check mr-2"></i>行前必查
+                </h2>
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 w-5 h-5 accent-sky-500">
+                        <div>
+                            <p class="font-bold">機票與船票預訂</p>
+                            <p class="text-[11px] text-sky-400">花火節期間建議提早 3 個月訂位。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 w-5 h-5 accent-sky-500">
+                        <div>
+                            <p class="font-bold">潮汐時刻表</p>
+                            <p class="text-[11px] text-sky-400">天堂路、摩西分海需配合退潮。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" data-tab="summary"><i class="fa-solid fa-house"></i><span>總覽</span></div>
+        <div class="nav-item" data-tab="itinerary"><i class="fa-solid fa-map-pin"></i><span>行程</span></div>
+        <div class="nav-item" data-tab="food"><i class="fa-solid fa-utensils"></i><span>美食</span></div>
+        <div class="nav-item" data-tab="souvenir"><i class="fa-solid fa-bag-shopping"></i><span>名產</span></div>
+        <div class="nav-item" data-tab="prep"><i class="fa-solid fa-check-double"></i><span>準備</span></div>
+    </nav>
+
+    <script>
+        const foods = [
+            { name: "阿華排骨麵", type: "snack", desc: "濃郁湯頭，肉質軟爛", url: "https://www.google.com/maps/search/?api=1&query=阿華排骨麵" },
+            { name: "原味小管麵線", type: "seafood", desc: "新鮮脆甜小管，清爽湯底", url: "https://www.google.com/maps/search/?api=1&query=原味小管麵線" },
+            { name: "玉冠嫩仙草", type: "snack", desc: "澎湖最強甜點，必排隊", url: "https://www.google.com/maps/search/?api=1&query=玉冠嫩仙草" },
+            { name: "讚哥麵攤", type: "snack", desc: "燒肉飯與排骨麵的老字號", url: "https://www.google.com/maps/search/?api=1&query=讚哥麵攤" },
+            { name: "臨海居海鮮", type: "seafood", desc: "平價新鮮，在地人也愛", url: "https://www.google.com/maps/search/?api=1&query=臨海居" }
+        ];
+
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+                item.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        const ctx = document.getElementById('travelChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['D1', 'D2', 'D3'],
+                datasets: [{
+                    data: [60, 95, 75],
+                    backgroundColor: '#0284c7',
+                    borderRadius: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, max: 100, display: false }, x: { grid: { display: false } } },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        function renderFoods(filter = 'all') {
+            const grid = document.getElementById('foodGrid');
+            grid.innerHTML = foods
+                .filter(f => filter === 'all' || f.type === filter)
+                .map(f => `
+                    <div class="card-style flex justify-between items-center transition-all active:scale-95">
+                        <div class="flex-1">
+                            <h4 class="text-sm font-black text-slate-800">${f.name}</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">${f.desc}</p>
+                        </div>
+                        <a href="${f.url}" target="_blank" class="bg-sky-50 text-sky-600 px-4 py-2 rounded-xl text-xs font-bold">導航</a>
+                    </div>
+                `).join('');
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-sky-800', 'text-white');
+                    b.classList.add('bg-white');
+                });
+                this.classList.add('bg-sky-800', 'text-white');
+                renderFoods(this.dataset.filter);
+            });
+        });
+
+        window.onload = () => renderFoods();
+    </script>
+</body>
+</html>
